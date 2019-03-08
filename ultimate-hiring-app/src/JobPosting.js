@@ -16,6 +16,10 @@ class JobPosting extends Component{
                         <td>Clover</td>
                     </tr>
                     <tr>
+                        <td>QA Engineer</td>
+                        <td>Dabberoni</td>
+                    </tr>
+                    <tr>
                         <td>Tech Lead</td>
                         <td>Clover</td>
                     </tr>
