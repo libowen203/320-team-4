@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 
 
@@ -33,75 +34,84 @@ class JobPosting extends Component{
     }
     handlePostingDateChange = (event) => {
         this.setState({postingDate: event.target.value});
-    } 
+    }
 //Method for action after hitting the submit button
     handleSubmit = (event) => {
         event.preventDefault();
         const {postingID, managerID, jobTitle, jobDescription, companyID, postingDate} = this.state
         //console.log(this.state.postingID);
-        
-        /*alert(`Your state values: \n 
-                postingID: ${postingID} \n 
-                managerID: ${managerID}\n
-                jobTitle: ${jobTitle}\n
-                jobDescription ${jobDescription}\n
-                companyID ${companyID}\n
-                postingID ${postingID}`)*/
-      } 
+
+        //format data according to data dump
+        //NOTE: data dump doesn't include posting ID. I'm wondering if we need it or if we'll always query by manager id and position title
+        //for example, an employee wouldn't apply for a posting. They'd apply to a title. Then positions would be filled as they're filled
+        const data = {
+          "title" : jobTitle,
+          "description" : jobDescription,
+          "companyId" : companyID,
+          "companyName" : "Sample Name",
+          "managerId" : managerID,
+          "startDate" : "Sample Start Date",
+          "postedDate" : postingDate,
+          "postingExpirationDate" : "Sample Expiration Date"
+        }
+
+        //push data via backend
+        axios.post('http://localhost:3001/putData', data)
+      }
 
 
   render(){
-   
+
       return(
-    //Form elements with labels and inputs for 6 attributes 
+    //Form elements with labels and inputs for 6 attributes
         <div>
-            
+
     <form onSubmit={this.handleSubmit}>
-    
+
       <div className="form-group">
         <label htmlFor="postingID">Posting ID</label>
-        <input name="postingID" className="form-control" id="postingID" placeholder="Enter Posting ID" 
-          value={this.state.postingID} 
+        <input name="postingID" className="form-control" id="postingID" placeholder="Enter Posting ID"
+          value={this.state.postingID}
           onChange={this.handlePostingIDChange} />
       </div>
 
       <div className="form-group">
         <label htmlFor="managerID">Manager ID</label>
-        <input name="managerID" className="form-control" id="managerID" placeholder="Enter Manager ID" 
+        <input name="managerID" className="form-control" id="managerID" placeholder="Enter Manager ID"
         // value and onChange prop
-          value={this.state.managerID} 
+          value={this.state.managerID}
           onChange={this.handleManagerIDChange} />
       </div>
 
       <div className="form-group">
         <label htmlFor="jobTitle">Job Title</label>
-        <input name="jobTitle" className="form-control" id="jobTitle" placeholder="Enter Job Title" 
+        <input name="jobTitle" className="form-control" id="jobTitle" placeholder="Enter Job Title"
         // value and onChange prop
-          value={this.state.jobTitle} 
+          value={this.state.jobTitle}
           onChange={this.handleJobTitleChange} />
       </div>
 
       <div className="form-group">
         <label htmlFor="jobDescription">Job Description</label>
-        <input name="jobDescription" className="form-control" id="jobDescription" placeholder="Enter Job Description" 
+        <input name="jobDescription" className="form-control" id="jobDescription" placeholder="Enter Job Description"
         // value and onChange prop
-          value={this.state.jobDescription} 
+          value={this.state.jobDescription}
           onChange={this.handleJobDescriptionChange} />
       </div>
 
       <div className="form-group">
         <label htmlFor="companyID">Company ID</label>
-        <input name="companyID" className="form-control" id="companyID" placeholder="Company ID" 
+        <input name="companyID" className="form-control" id="companyID" placeholder="Company ID"
         // value and onChange prop
-          value={this.state.companyID} 
+          value={this.state.companyID}
           onChange={this.handleCompanyIDChange} />
       </div>
 
       <div className="form-group">
         <label htmlFor="postingDate">Posting Date</label>
-        <input name="postingDate" className="form-control" id="postingDate" placeholder="postingDate" 
+        <input name="postingDate" className="form-control" id="postingDate" placeholder="postingDate"
         // value and onChange prop
-          value={this.state.postingDate} 
+          value={this.state.postingDate}
           onChange={this.handlePostingDateChange} />
       </div>
 
@@ -109,7 +119,7 @@ class JobPosting extends Component{
 
 
     </form>
-        
+
 
     <h6>Form Data Unstructured</h6>
       <div >{this.state.postingID}</div>
@@ -121,7 +131,7 @@ class JobPosting extends Component{
       <h6>Format Data as a JSON File</h6>
        <div><pre>{JSON.stringify(this.state, null, 2) }</pre></div>
     </div>
-        
+
   );
   }
 
@@ -135,12 +145,12 @@ class JobPosting extends Component{
     constructor(props) {
         super(props);
         this.state = {value: ''};
-        
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
       }
 
-      
+
       handleChange(event) {
         this.setState({value: event.target.value});
       }
@@ -186,23 +196,23 @@ class JobPosting extends Component{
                     </tr>
                 </tbody>
             </table>
-            
+
 
             // testing putting up a form
             //start of the form
-            <form onSubmit={this.handleSubmit}> 
+            <form onSubmit={this.handleSubmit}>
                 <label>
-                    Posting_ID: 
+                    Posting_ID:
 		            <input type="text" ref={(input) => this.input = input} />
                 </label>
                 <br></br>
                 <label>
-                    Manager_ID: 
+                    Manager_ID:
 		            <input type="text" ref={(input) => this.input = input} />
                 </label>
                 <br></br>
                 <label>
-                    Job Title: 
+                    Job Title:
                     <input type="text" ref={(input) => this.input = input} />
                 </label>
                 <br></br>
@@ -212,17 +222,17 @@ class JobPosting extends Component{
                 </label>
                 <br></br>
                 <label>
-                    Company_ID: 
+                    Company_ID:
 		            <input type="text" ref={(input) => this.input = input} />
                 </label>
                 <br></br>
                 <label>
-                    Posting Date: 
+                    Posting Date:
 		            <input type="text" ref={(input) => this.input = input} />
                 </label>
                 <br></br>
                 <input type="submit" value="Submit" />
-            </form> 
+            </form>
 
         );
     }
