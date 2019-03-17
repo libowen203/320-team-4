@@ -13,4 +13,32 @@ code {
     monospace;
 }
 
+.header{
+	font-size: 28px;
+	text-align: center;
+	background-color: #07b52c;
+	color: white;
+}
+/*General stylings of JobPosting form*/
+.form-group{
+	font-size: 16px;
+	padding: 10px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	width: 200px;
+	margin: auto;
+	background-color: #D3D3D3;
+}
+
+/*Sylings for submit button*/
+.btn{
+	padding-left: 10px;
+	text-align: center;
+	width: 50px;
+	margin: auto;
+	background-color: #07b52c;
+	color: white;
+}
+
 
