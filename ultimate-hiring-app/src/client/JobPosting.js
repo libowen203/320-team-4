@@ -67,7 +67,7 @@ class JobPosting extends Component{
         <div>
 
     <form onSubmit={this.handleSubmit}>
-
+      <div className="header">Post a Job</div>
       <div className="form-group">
         <label htmlFor="postingID">Posting ID</label>
         <input name="postingID" className="form-control" id="postingID" placeholder="Enter Posting ID"
