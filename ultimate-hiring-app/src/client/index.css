@@ -16,7 +16,7 @@ code {
 .header{
 	font-size: 28px;
 	text-align: center;
-	background-color: #07b52c;
+	background-color: #519e2f;
 	color: white;
 }
 /*General stylings of JobPosting form*/
@@ -37,7 +37,7 @@ code {
 	text-align: center;
 	width: 50px;
 	margin: auto;
-	background-color: #07b52c;
+	background-color: #519e2f;
 	color: white;
 }
 
