@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  react-docker:
+    build: .
+    container_name: ultimate-hiring-app
+    restart: always
+    ports:
+      - "3000:3000"
+    working_dir: /usr/src/app
+    environment:
+          - NODE_ENV=development
+          - CHOKIDAR_USEPOLLING=true
