@@ -7,129 +7,84 @@ class JobPosting extends Component{
   constructor(props){
       super(props);
       this.state = {
-          postingID: '',
-          managerID: '',
+          postingID: Math.floor(Math.random()*100),
+          managerID: 22,
           jobTitle: '',
           jobDescription: '',
-          companyID: '',
-          postingDate: '',
+          companyID: 1,
+          postingDate:  new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+          showPopup: false,
       };
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.togglePopup = this.togglePopup.bind(this);
+
   }
 
-//Methods that handle text input for each field
-    handlePostingIDChange = (event) => {
-        this.setState({postingID: event.target.value});
+//Method to toggle popup window
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
   }
-    handleManagerIDChange = (event) => {
-        this.setState({managerID: event.target.value});
-    }
-    handleJobTitleChange = (event) => {
-        this.setState({jobTitle: event.target.value});
-    }
-    handleJobDescriptionChange = (event) => {
-        this.setState({jobDescription: event.target.value});
-    }
-    handleCompanyIDChange = (event) => {
-        this.setState({companyID: event.target.value});
-    }
-    handlePostingDateChange = (event) => {
-        this.setState({postingDate: event.target.value});
-    }
+
 //Method for action after hitting the submit button
     handleSubmit = (event) => {
         event.preventDefault();
-        const {postingID, managerID, jobTitle, jobDescription, companyID, postingDate} = this.state
-        //console.log(this.state.postingID);
+        let form = document.forms.postingInfo;
 
         //format data according to data dump
         //NOTE: data dump doesn't include posting ID. I'm wondering if we need it or if we'll always query by manager id and position title
         //for example, an employee wouldn't apply for a posting. They'd apply to a title. Then positions would be filled as they're filled
-        const data = {
-          "title" : jobTitle,
-          "description" : jobDescription,
-          "companyId" : companyID,
-          "companyName" : "Sample Name",
-          "managerId" : managerID,
-          "startDate" : "Sample Start Date",
-          "postedDate" : postingDate,
-          "postingExpirationDate" : "Sample Expiration Date"
-        }
+        this.setState(prev => ({
+          jobTitle: form.jobTitle.value,
+          jobDescription: form.jobDescription.value,
+      }));
+      //document.getElementById("posting-form").reset();
 
         //push data via backend
-        axios.post('http://localhost:3001/putData', data)
+        axios.post('http://localhost:3001/putData', this.state)
       }
 
 
   render(){
 
       return(
-    //Form elements with labels and inputs for 6 attributes
+    //Form elements with labels and inputs for job title and job description
         <div>
-
-    <form onSubmit={this.handleSubmit}>
+     <form name="postingInfo" onSubmit={this.handleSubmit} id="posting-form">
       <div className="header">Post a Job</div>
       <div className="form-group">
-        <label htmlFor="postingID">Posting ID</label>
-        <input name="postingID" className="form-control" id="postingID" placeholder="Enter Posting ID"
-          value={this.state.postingID}
-          onChange={this.handlePostingIDChange} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="managerID">Manager ID</label>
-        <input name="managerID" className="form-control" id="managerID" placeholder="Enter Manager ID"
-        // value and onChange prop
-          value={this.state.managerID}
-          onChange={this.handleManagerIDChange} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="jobTitle">Job Title</label>
-        <input name="jobTitle" className="form-control" id="jobTitle" placeholder="Enter Job Title"
-        // value and onChange prop
-          value={this.state.jobTitle}
-          onChange={this.handleJobTitleChange} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="jobDescription">Job Description</label>
-        <input name="jobDescription" className="form-control" id="jobDescription" placeholder="Enter Job Description"
-        // value and onChange prop
-          value={this.state.jobDescription}
-          onChange={this.handleJobDescriptionChange} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="companyID">Company ID</label>
-        <input name="companyID" className="form-control" id="companyID" placeholder="Company ID"
-        // value and onChange prop
-          value={this.state.companyID}
-          onChange={this.handleCompanyIDChange} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="postingDate">Posting Date</label>
-        <input name="postingDate" className="form-control" id="postingDate" placeholder="postingDate"
-        // value and onChange prop
-          value={this.state.postingDate}
-          onChange={this.handlePostingDateChange} />
-      </div>
-
-      <button type="submit" className="btn btn-success btn-block">Submit</button>
-
-
+            <input type="text" name="jobTitle" placeholder="Job Title" 
+            value ={this.state.text}/>
+            <input type="text" name="jobDescription" placeholder="Job Description" 
+            value ={this.state.text}/>
+            <button onClick ={this.togglePopup.bind(this)}
+>Submit Job Posting</button>
+</div>
     </form>
 
 
-    <h6>Form Data Unstructured</h6>
-      <div >{this.state.postingID}</div>
-      <div >{this.state.managerID}</div>
+    <h6>Form Data (Not to be used in production. For Information Purposes only)</h6>
+    <div><b>Posting ID: </b> {this.state.postingID} //Generated Randomly for now in future but will  use database to generate</div>
+      <div ><b>Manager ID: </b>{this.state.managerID} //Hard coded but in future will use database to retrieve </div>
       <div >{this.state.jobTitle}</div>
       <div >{this.state.jobDescription}</div>
-      <div >{this.state.companyID}</div>
-      <div >{this.state.postingDate}</div>
+      <div ><b>Company ID: </b>{this.state.companyID} //Will be used to show company title</div>
+      <div ><b>Posting Date: </b>{this.state.postingDate} //Uses Javascript date function</div>
       <h6>Format Data as a JSON File</h6>
        <div><pre>{JSON.stringify(this.state, null, 2) }</pre></div>
+
+       {this.state.showPopup ? 
+          <Popup
+            jobTitle={this.state.jobTitle}
+            jobDescription = {this.state.jobDescription}
+            postingID = {this.state.postingID}
+            postingDate ={this.state.postingDate}
+            managerID = {this.state.managerID}
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
     </div>
 
   );
@@ -140,4 +95,31 @@ class JobPosting extends Component{
 
 }
 
+class Popup extends React.Component {
+  
+  render() {
+    return (
+      <div className='popup'>
+        <div className='popup_inner'>
+        <h1>Posting Preview</h1>
+          <h2>{this.props.jobTitle}</h2>
+          <h4><b>Posting ID: </b> {this.props.postingID}</h4>
+          <h4><b>Date Posted: </b>{this.props.postingDate}</h4>
+          <h4><b>Posted by Manager:</b> {this.props.managerID}</h4>
+          <h3>{this.props.jobDescription}</h3>
+         
+          
+
+
+        <button id ="closeButton" onClick={this.props.closePopup}>Done</button>
+        </div>
+      </div>
+    );
+  }
+}
+
+
 export default JobPosting;
+
+
+
