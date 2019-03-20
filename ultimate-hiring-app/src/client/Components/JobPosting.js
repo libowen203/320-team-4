@@ -65,12 +65,12 @@ class JobPosting extends Component{
 
 
     <h6>Form Data (Not to be used in production. For Information Purposes only)</h6>
-    <div><b>Posting ID: </b> {this.state.postingID} //Generated Randomly for now in future but will  use database to generate</div>
-      <div ><b>Manager ID: </b>{this.state.managerID} //Hard coded but in future will use database to retrieve </div>
+    <div><b>Posting ID: </b> {this.state.postingID} </div>
+      <div ><b>Manager ID: </b>{this.state.managerID}  </div>
       <div >{this.state.jobTitle}</div>
       <div >{this.state.jobDescription}</div>
-      <div ><b>Company ID: </b>{this.state.companyID} //Will be used to show company title</div>
-      <div ><b>Posting Date: </b>{this.state.postingDate} //Uses Javascript date function</div>
+      <div ><b>Company ID: </b>{this.state.companyID} </div>
+      <div ><b>Posting Date: </b>{this.state.postingDate}</div>
       <h6>Format Data as a JSON File</h6>
        <div><pre>{JSON.stringify(this.state, null, 2) }</pre></div>
 
