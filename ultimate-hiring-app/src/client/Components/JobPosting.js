@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 
-
-
 class JobPosting extends Component{
   constructor(props){
       super(props);
@@ -46,57 +44,50 @@ class JobPosting extends Component{
       }
 
 
-  render(){
+      render(){
 
-      return(
-    //Form elements with labels and inputs for job title and job description
-        <div>
-     <form name="postingInfo" onSubmit={this.handleSubmit} id="posting-form">
-      <div className="header">Post a Job</div>
-      <div className="form-group">
-            <input type="text" name="jobTitle" placeholder="Job Title" 
-            value ={this.state.text}/>
-            <input type="text" name="jobDescription" placeholder="Job Description" 
-            value ={this.state.text}/>
-            <button onClick ={this.togglePopup.bind(this)}
->Submit Job Posting</button>
-</div>
-    </form>
+        return(
+            //Form elements with labels and inputs for job title and job description
+            <div>
+            <form name="postingInfo" onSubmit={this.handleSubmit} id="posting-form">
+              <div className="header">Post a Job</div>
+              <div className="form-group">
+                <input type="text" name="jobTitle" placeholder="Job Title" value ={this.state.text}/>
+                <input type="text" name="jobDescription" placeholder="Job Description" value ={this.state.text}/>
+                <button onClick ={this.togglePopup.bind(this)}>Submit Job Posting</button>
+              </div>
+            </form>
 
+                <h6>Form Data (Not to be used in production. For Information Purposes only)</h6>
+                <div><b>Posting ID: </b> {this.state.postingID} </div>
+                <div ><b>Manager ID: </b>{this.state.managerID}  </div>
+                <div >{this.state.jobTitle}</div>
+                <div >{this.state.jobDescription}</div>
+                <div ><b>Company ID: </b>{this.state.companyID} </div>
+                <div ><b>Posting Date: </b>{this.state.postingDate}</div>
+                <h6>Format Data as a JSON File</h6>
+                <div><pre>{JSON.stringify(this.state, null, 2) }</pre></div>
 
-    <h6>Form Data (Not to be used in production. For Information Purposes only)</h6>
-    <div><b>Posting ID: </b> {this.state.postingID} </div>
-      <div ><b>Manager ID: </b>{this.state.managerID}  </div>
-      <div >{this.state.jobTitle}</div>
-      <div >{this.state.jobDescription}</div>
-      <div ><b>Company ID: </b>{this.state.companyID} </div>
-      <div ><b>Posting Date: </b>{this.state.postingDate}</div>
-      <h6>Format Data as a JSON File</h6>
-       <div><pre>{JSON.stringify(this.state, null, 2) }</pre></div>
+                {this.state.showPopup ?
+                  <Popup
+                    jobTitle={this.state.jobTitle}
+                    jobDescription = {this.state.jobDescription}
+                    postingID = {this.state.postingID}
+                    postingDate ={this.state.postingDate}
+                    managerID = {this.state.managerID}
+                    closePopup={this.togglePopup.bind(this)}
+                    />
+                  : null
+                }
+          </div>
 
-       {this.state.showPopup ? 
-          <Popup
-            jobTitle={this.state.jobTitle}
-            jobDescription = {this.state.jobDescription}
-            postingID = {this.state.postingID}
-            postingDate ={this.state.postingDate}
-            managerID = {this.state.managerID}
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
-    </div>
-
-  );
-  }
-
-
-
+          );
+      }
 
 }
 
 class Popup extends React.Component {
-  
+
   render() {
     return (
       <div className='popup'>
@@ -107,8 +98,8 @@ class Popup extends React.Component {
           <h4><b>Date Posted: </b>{this.props.postingDate}</h4>
           <h4><b>Posted by Manager:</b> {this.props.managerID}</h4>
           <h3>{this.props.jobDescription}</h3>
-         
-          
+
+
 
 
         <button id ="closeButton" onClick={this.props.closePopup}>Done</button>
@@ -120,6 +111,3 @@ class Popup extends React.Component {
 
 
 export default JobPosting;
-
-
-
