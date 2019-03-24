@@ -8,6 +8,8 @@ class App extends Component {
             <div className="Postings">
                 <JobPosting />
                 <ManagerDash />
+                <br></br>
+                <br></br>
             </div>
         );
     }
