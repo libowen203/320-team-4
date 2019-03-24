@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 
 
-
 class ManagerDash extends Component {
   constructor() {
     super();
@@ -12,15 +11,20 @@ class ManagerDash extends Component {
   render () {
     return (
 
-      <Container fluid style ={{ lineHeight: '32px' }}>
-        <Row debug>
-          <Col debug><JobPostingCard /></Col>
-          <Col debug><JobPostingCard /></Col>
-        </Row>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <JobPostingCard />
+          </div>
+          <div class="col-sm">
+            <JobPostingCard />
+          </div>
+          <div class="col-sm">
+            <JobPostingCard />
+          </div>
+        </div>
 
-      </Container>
-
-
+      </div>
     )
 
   }
