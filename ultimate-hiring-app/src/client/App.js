@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import JobPosting from './Components/JobPosting';
+import Manager from './Pageviews/Manager';
 class App extends Component {
     render() {
         return (
             <div className="Postings">
-                <JobPosting/>
+                <Manager />
             </div>
         );
     }
