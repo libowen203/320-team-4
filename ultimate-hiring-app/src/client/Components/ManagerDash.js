@@ -10,9 +10,11 @@ class ManagerDash extends Component {
 
   render () {
     return (
-
       <div class="container">
         <div class="row">
+          <div class="col-sm">
+            <JobPostingCard />
+          </div>
           <div class="col-sm">
             <JobPostingCard />
           </div>
