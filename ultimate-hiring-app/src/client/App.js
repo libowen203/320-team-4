@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Manager from './Pageviews/Manager';
+import ManagerView from './Pageviews/ManagerView';
 class App extends Component {
     render() {
         return (
             <div className="Postings">
-                <Manager />
+                <ManagerView />
             </div>
         );
     }
