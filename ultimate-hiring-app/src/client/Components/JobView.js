@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 class JobView extends Component {
   render() {
   	axios.get('http://localhost:3001/getData').then(function (response) {
