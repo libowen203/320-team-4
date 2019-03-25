@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
-import ManagerView from '../Pageviews/ManagerView';
+import DefaultView from '../Pageviews/DefaultView';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
-class LogInbutton extends Component{
+class LogOutbutton extends Component{
     render(){
         return (
         <Router>
             <ul>
                 <li>
-                 <Link to="/managerview">LogIn</Link>
+                 <Link to="/">LogOut</Link>
                 </li>
             </ul>
               <div>
-                <Route exact path="/managerview" component={ManagerView} />
+                <Route exact path="/" component={DefaultView} />
               </div>
         </Router>
         );
     }
 }
 
-export default LogInbutton;
+export default LogOutbutton;
