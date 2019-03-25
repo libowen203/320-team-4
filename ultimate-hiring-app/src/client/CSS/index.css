@@ -27,7 +27,7 @@ code {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 	border-bottom: 1px solid black;
-	width: 200px;
+	width: 300px;
 	margin: auto;
 	background-color: #D3D3D3;
 }
@@ -53,7 +53,7 @@ code {
   bottom: 0;
   margin: auto;
 	background-color: rgba(0,0,0, 0.5);
-	
+
 }
 .popup_inner {
 	position: absolute;

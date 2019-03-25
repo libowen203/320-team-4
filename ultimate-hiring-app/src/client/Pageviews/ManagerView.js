@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import JobPosting from '../Components/JobPosting';
-import ManagerView from './Pageviews/ManagerView';
+import ManagerDash from '../Components/ManagerDash'; //make sure to switch this back to JobPosting
+
 class App extends Component {
     render() {
         return (
             <div className="Postings">
-                <ManagerView />
+                <JobPosting />
+                <ManagerDash />
+                <br></br>
+                <br></br>
             </div>
         );
     }
