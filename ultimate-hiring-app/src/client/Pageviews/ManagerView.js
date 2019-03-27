@@ -7,9 +7,9 @@ class ManagerView extends Component{
     render(){
        return (
        <div>
-           {/* <header>
-               <LogOutButton/>
-           </header> */}
+         <header>
+            <LogOutButton/>
+        </header> 
        <div className="Postings">
        <JobPosting />
        <ManagerDash />
