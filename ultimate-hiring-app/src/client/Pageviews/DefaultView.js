@@ -7,12 +7,12 @@ class App extends Component {
     render() {
         return (
           <div class = "view">
-          <header>
-            <Menu />
-          </header>
-          <div className = "container">
-            <JobView/>
-          </div>
+            <header>
+              <Menu />
+            </header>
+            <div className = "container">
+              <JobView />
+            </div>
           </div>
         );
     }
