@@ -1,0 +1,10 @@
+Follow these instructions to run the database locally on your machines
+	-download mongoDB community: https://www.mongodb.com/download-center/community
+	-follow steps here to get database running
+		-for windows: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#run-mongodb-from-cmd
+			-repeat step 2 and 3 each time you want to start db
+		-for mac: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+			-repeat run and connect steps each time you want to start db
+	-extract db file from GitHub repo to your instance of mongoDB
+		-mongorestore --drop -d scrumgang_server C:\Users\ryanm\Documents\GitHub\320-team-4-main\Database\scrumgang_server
+	
