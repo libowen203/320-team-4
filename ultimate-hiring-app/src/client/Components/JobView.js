@@ -14,7 +14,7 @@ class JobView extends Component {
 	})
     return (
       <div>
-        <h1> Hello World! </h1>
+        <h1> Welcome Stranger!</h1>
       </div>
     )
   }
