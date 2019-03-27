@@ -47,6 +47,6 @@ app.get("/getData",(req, res) => {
   JobPosting.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
-  });
+  })});
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
