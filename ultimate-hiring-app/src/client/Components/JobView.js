@@ -7,7 +7,7 @@ class JobView extends Component {
 	// Shows form data: console.log(response.data)
 	})
 	.catch(function(error){
-		alert("Error retrieving job posting data")
+		//alert("Error retrieving job posting data")
 	})
 	.then(function(){
 		//always executed, display here
