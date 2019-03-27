@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import JobView from '../Components/JobView';
-import Menu from '../Components/Menu';
+import Menu from './Components/Menu';
 
 
 class App extends Component {
@@ -10,13 +9,9 @@ class App extends Component {
             <header>
               <Menu />
             </header>
-            <div className = "container">
-              <JobView />
-            </div>
           </div>
         );
     }
-
 }
 
 export default App;
