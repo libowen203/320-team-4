@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import JobView from './Components/JobView';
+import JobView from '../Components/JobView';
 
 class PublicView extends Component {
     render() {
