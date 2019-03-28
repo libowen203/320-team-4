@@ -14,10 +14,10 @@ class JobPostingCard extends Component {
     return (
       <div>
         <Card>
-          <CardImg top src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
           <CardBody>
-            <CardTitle> Card Title goes here </CardTitle>
-            <Button class="btn" >Button</Button>
+            <CardTitle> Job Posting Card </CardTitle>
+            <CardBody> Card Body: Text about card goes here </CardBody>
+            <Button class="btn"> Button </Button>
           </CardBody>
         </Card>
       </div>
