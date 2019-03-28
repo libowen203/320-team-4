@@ -15,7 +15,7 @@ class CompInfoCard extends Component {
       <div>
         <Card>
           <CardBody>
-            <CardTitle> Org Chart Card </CardTitle>
+            <CardTitle> Company Info Card </CardTitle>
             <CardBody> Card Body: Text about card goes here </CardBody>
             <Button class="btn"> Button </Button>
           </CardBody>
