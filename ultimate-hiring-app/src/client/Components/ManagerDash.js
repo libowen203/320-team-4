@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
-
+import OrgChartCard from "./OrgChartCard";
+import CompInfoCard from "./CompInfoCard";
+import ManPostingsCard from "./ManPostingsCard";
 
 class ManagerDash extends Component {
   constructor() {
@@ -16,13 +18,13 @@ class ManagerDash extends Component {
             <JobPostingCard />
           </div>
           <div class="col-sm">
-            <JobPostingCard />
+            <OrgChartCard />
           </div>
           <div class="col-sm">
-            <JobPostingCard />
+            <ManPostingsCard />
           </div>
           <div class="col-sm">
-            <JobPostingCard />
+            <CompInfoCard />
           </div>
         </div>
 
