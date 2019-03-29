@@ -20,7 +20,7 @@ class JobPosting extends Component{
 
   }
 
-//Method to toggle popup window
+//Method to toggle popup window..
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
