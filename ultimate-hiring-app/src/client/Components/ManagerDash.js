@@ -12,23 +12,22 @@ class ManagerDash extends Component {
 
   render () {
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            <JobPostingCard />
-          </div>
-          <div class="col-sm">
-            <OrgChartCard />
-          </div>
-          <div class="col-sm">
-            <ManPostingsCard />
-          </div>
-          <div class="col-sm">
-            <CompInfoCard />
-          </div>
-        </div>
-
-      </div>
+      <Container fluid>
+        <Row>
+          <Col xs="auto">Recent postings</Col>
+          <Col sm="12" md={{size: 6, offset: 3}}>
+            <Row>
+              <Col> <OrgChartCard /> </Col>
+              <Col> <CompInfoCard /> </Col>
+            </Row>
+            <br></br>
+            <Row>
+              <Col><ManPostingsCard /> </Col>
+              <Col> <JobPostingCard /> </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     )
 
   }
