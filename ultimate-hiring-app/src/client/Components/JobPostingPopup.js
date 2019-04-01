@@ -14,6 +14,8 @@ class JobPostingPopup extends Component{
           companyID: 1,
           postingDate:  new Date().toJSON().slice(0,10).replace(/-/g,'/'),
           showPopup: false,
+          startDate: null,
+          expirationDate: null,
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.togglePopup = this.togglePopup.bind(this);
@@ -39,6 +41,8 @@ class JobPostingPopup extends Component{
         this.setState({
           jobTitle: form.jobTitle.value,
           jobDescription: form.jobDescription.value,
+          startDate: form.startDate.value,
+          expirationDate: form.expirationDate.value,
       },() => { //callback param ensures that setstate occurs before post
         //push data via backend
         console.log('POST')
@@ -63,6 +67,12 @@ class JobPostingPopup extends Component{
             <div className="form-group">
               <input type="text" name="jobTitle" placeholder="Job Title" value ={this.state.text}/>
               <input type="text" name="jobDescription" placeholder="Job Description" value ={this.state.text}/>
+              <br></br>
+              <label>Posting Date</label>
+              <input type="date" name="startDate" placeholder="Start Date" value ={this.state.startDate}/>
+              <br></br>
+              <label>Posting Date</label>
+              <input type="date" name="expirationDate" placeholder="Expiration Date" value ={this.state.expirationDate}/>
               <input type="submit" value="Submit Job Posting" />
               <button id ="closeButton" onClick={this.props.closePopup}>Close</button>
             </div>
