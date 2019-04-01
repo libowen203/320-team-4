@@ -41,3 +41,5 @@ class JobPostingCard extends Component {
     )
   }
 }
+
+export default JobPostingCard;
