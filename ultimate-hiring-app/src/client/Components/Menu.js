@@ -13,17 +13,17 @@ class Menu extends Component {
         <Navbar style={{backgroundColor: '#519e2f'}}>
           <NavbarBrand> Ultimate Hiring App</NavbarBrand>
           <Nav className="ml-auto" navbar>
-          { notLoggedIn &&
-            <NavItem>
-            <NavLink href="/managerview"> Log in </NavLink>
-            </NavItem>
-          }
-          { !notLoggedIn &&
+          {this.notLoggedIn ? (
+             <NavItem>
+             <NavLink href="/managerview"> Log in </NavLink>
+             {/*{this.setState({notLoggedIn: false})}*/}
+             </NavItem>
+          ) : (
             <NavItem>
             <NavLink href="/"> Log out </NavLink>
+            {/*{this.setState({notLoggedIn: true})}*/}
             </NavItem>
-          }
-            
+          )}
           </Nav>
         </Navbar>
       </div>
