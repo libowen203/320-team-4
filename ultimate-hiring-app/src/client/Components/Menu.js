@@ -11,11 +11,11 @@ class Menu extends Component {
     return (
       <div>
         <Navbar style={{backgroundColor: '#519e2f'}}>
-          <NavbarBrand> Ultimate Hiring App</NavbarBrand>
+          <NavbarBrand style={{color: 'white'}}> Ultimate Hiring App</NavbarBrand>
           <Nav className="ml-auto" navbar>
           {this.notLoggedIn ? (
              <NavItem>
-             <NavLink href="/managerview"> Log in </NavLink>
+              <NavLink href="/managerview"> Log in </NavLink>
              {/*{this.setState({notLoggedIn: false})}*/}
              </NavItem>
           ) : (
