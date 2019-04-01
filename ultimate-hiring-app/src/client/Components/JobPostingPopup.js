@@ -22,6 +22,7 @@ class JobPostingPopup extends Component{
 
 //Method to toggle popup window..
   togglePopup() {
+    console.log("TOGGLE")
     this.setState({
       showPopup: !this.state.showPopup
     });
@@ -31,17 +32,19 @@ class JobPostingPopup extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
         let form = document.forms.postingInfo;
-
+        console.log(form.jobTitle.value)
         //format data according to data dump
         //NOTE: data dump doesn't include posting ID. I'm wondering if we need it or if we'll always query by manager id and position title
         //for example, an employee wouldn't apply for a posting. They'd apply to a title. Then positions would be filled as they're filled
-        this.setState(prev => ({
+        this.setState({
           jobTitle: form.jobTitle.value,
           jobDescription: form.jobDescription.value,
       },() => { //callback param ensures that setstate occurs before post
         //push data via backend
+        console.log('POST')
         axios.post('http://localhost:3001/putData', this.state)
-      }));
+        this.props.closePopup()
+      });
       //document.getElementById("posting-form").reset();
 
       }
@@ -60,9 +63,9 @@ class JobPostingPopup extends Component{
             <div className="form-group">
               <input type="text" name="jobTitle" placeholder="Job Title" value ={this.state.text}/>
               <input type="text" name="jobDescription" placeholder="Job Description" value ={this.state.text}/>
-              <button onClick ={this.togglePopup.bind(this)}> Submit Job Posting</button>
+              <button onClick ={this.togglePopup}> Submit Job Posting</button>
               <button id ="closeButton" onClick={this.props.closePopup}>Done</button>
-
+              <input type="submit" value="Submit" />
             </div>
           </form>
         </div>
