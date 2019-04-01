@@ -7,9 +7,6 @@ import ManPostingsCard from "./ManPostingsCard";
 import JobPostingPopup from './JobPostingPopup';
 
 class ManagerDash extends Component {
-  constructor() {
-    super();
-  }
 
   render () {
     return (
@@ -52,7 +49,7 @@ class ManagerDash extends Component {
           <div class="col-sm">
             <CompInfoCard />
           </div>
-        </div> 
+        </div>
       </div>
     )
 

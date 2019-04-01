@@ -6,9 +6,9 @@ class PublicView extends Component {
     render() {
         return (
           <div class = "view">
-          <header>
-          <LogInbutton />
-          </header>
+            <header>
+              <LogInbutton />
+            </header>
             <div className = "container">
             <JobView />
             </div>
@@ -19,8 +19,3 @@ class PublicView extends Component {
 }
 
 export default PublicView;
-
-
-
-
-

@@ -15,9 +15,9 @@ class App extends Component {
             </header>
             <main>
             <Switch>
-            <Route exact path="/" component ={PublicView}/>
-            <Route exact path="/ManagerView" component= {ManagerView}/>
-            <Route component= {ErrorPage}/>
+              <Route exact path="/" component ={PublicView}/>
+              <Route exact path="/ManagerView" component= {ManagerView}/>
+              <Route component= {ErrorPage}/>
             </Switch>
             </main>
           </div>
