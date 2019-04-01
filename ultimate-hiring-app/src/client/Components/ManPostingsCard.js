@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody,
+import { Card, CardImg, CardHeader, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-class ManPostingsCard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showPopup: false
-    };
-  }
+export default class ManPostingsCard extends React.Component {
 
   render() {
     return (
       <div>
         <Card>
-          <CardBody>
-            <CardTitle> Manage Job Postings Card </CardTitle>
+          <CardBody className="text-center">
+            <CardHeader tag="h5"> Manage Job Postings </CardHeader>
             <CardBody> Card Body: Text about card goes here </CardBody>
             <Button class="btn"> Button </Button>
           </CardBody>
@@ -24,5 +18,3 @@ class ManPostingsCard extends Component {
     )
   }
 }
-
-export default ManPostingsCard;

@@ -4,25 +4,24 @@ import JobPostingCard from "./JobPostingCard";
 import OrgChartCard from "./OrgChartCard";
 import CompInfoCard from "./CompInfoCard";
 import ManPostingsCard from "./ManPostingsCard";
+import RecentPostings from "./RecentPostings";
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 class ManagerDash extends Component {
-  constructor() {
-    super();
-  }
 
   render () {
     return (
       <Container fluid>
         <Row>
-          <Col xs="auto">Recent postings</Col>
-          <Col sm="12" md={{size: 6, offset: 3}}>
+          <Col sm="auto"><RecentPostings /></Col>
+          <Col sm="12" md={{size: 7, offset: 1}}>
             <Row>
               <Col> <OrgChartCard /> </Col>
               <Col> <CompInfoCard /> </Col>
             </Row>
             <br></br>
             <Row>
-              <Col><ManPostingsCard /> </Col>
+              <Col> <ManPostingsCard /> </Col>
               <Col> <JobPostingCard /> </Col>
             </Row>
           </Col>
