@@ -5,7 +5,7 @@ class Menu extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light">
+        <Navbar style={{backgroundColor: '#519e2f'}}>
           <NavbarBrand> Ultimate Hiring App</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>

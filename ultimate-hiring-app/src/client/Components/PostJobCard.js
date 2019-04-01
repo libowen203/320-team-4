@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardHeader, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
-  import JobPostingPopup from '../Components/JobPostingPopup';
+import JobPostingPopup from '../Components/JobPostingPopup';
 
 class PostJobCard extends Component {
   constructor(props) {
@@ -12,13 +12,11 @@ class PostJobCard extends Component {
 
   }
 
-
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
     });
   }
-
 
   render() {
     return (
