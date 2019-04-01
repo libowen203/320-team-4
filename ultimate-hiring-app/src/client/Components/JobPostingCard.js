@@ -25,7 +25,7 @@ class JobPostingCard extends Component {
       <div>
         <Card>
           <CardBody className="text-center">
-            <CardHeader tag="h5"> View Job Postings </CardHeader>
+            <CardHeader tag="h5"> Post a Job</CardHeader>
             <CardBody> Card Body: Text about card goes here </CardBody>
             <Button class="btn" onClick={this.togglePopup.bind(this)}> Button </Button>
           </CardBody>
