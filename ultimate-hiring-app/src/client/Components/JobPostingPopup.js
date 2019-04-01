@@ -63,9 +63,8 @@ class JobPostingPopup extends Component{
             <div className="form-group">
               <input type="text" name="jobTitle" placeholder="Job Title" value ={this.state.text}/>
               <input type="text" name="jobDescription" placeholder="Job Description" value ={this.state.text}/>
-              <button onClick ={this.togglePopup}> Submit Job Posting</button>
-              <button id ="closeButton" onClick={this.props.closePopup}>Done</button>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit Job Posting" />
+              <button id ="closeButton" onClick={this.props.closePopup}>Close</button>
             </div>
           </form>
         </div>
