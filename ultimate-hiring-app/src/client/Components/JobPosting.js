@@ -38,11 +38,12 @@ class JobPosting extends Component{
         this.setState(prev => ({
           jobTitle: form.jobTitle.value,
           jobDescription: form.jobDescription.value,
+      },() => { //callback param ensures that setstate occurs before post
+        //push data via backend
+        axios.post('http://localhost:3001/putData', this.state)
       }));
       //document.getElementById("posting-form").reset();
 
-        //push data via backend
-        axios.post('http://localhost:3001/putData', this.state)
       }
 
 
@@ -95,7 +96,7 @@ class JobPosting extends Component{
 class Popup extends React.Component {
 
   render() {
-    
+
     return (
       <div className='popup'>
         <div className='popup_inner'>
