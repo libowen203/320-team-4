@@ -13,7 +13,6 @@ class Menu extends Component {
             </NavItem>
           </Nav>
         </Navbar>
-
       </div>
     )
   }
