@@ -3,7 +3,7 @@ import { Card, CardImg, CardHeader, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
   import JobPostingPopup from '../Components/JobPostingPopup';
 
-class JobPostingCard extends Component {
+class PostJobCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,4 +42,4 @@ class JobPostingCard extends Component {
   }
 }
 
-export default JobPostingCard;
+export default PostJobCard;

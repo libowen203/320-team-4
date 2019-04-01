@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import JobPostingCard from "./JobPostingCard";
+import PostJobCard from "./PostJobCard";
 import OrgChartCard from "./OrgChartCard";
 import CompInfoCard from "./CompInfoCard";
 import ManPostingsCard from "./ManPostingsCard";
@@ -14,15 +14,15 @@ class ManagerDash extends Component {
       <Container fluid>
         <Row>
           <Col xs="auto"><RecentPostings /></Col>
-          <Col sm="12" md={{size: 6, offset: 3}}>
+          <Col sm="12" md={{size: 6, offset: 2}}>
             <Row>
               <Col> <OrgChartCard /> </Col>
               <Col> <CompInfoCard /> </Col>
             </Row>
             <br></br>
             <Row>
-              <Col><ManPostingsCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
+              <Col> <ManPostingsCard /> </Col>
+              <Col> <PostJobCard /> </Col>
             </Row>
           </Col>
         </Row>
