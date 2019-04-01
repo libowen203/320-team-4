@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 
-class JobPosting extends Component{
+class JobPostingPopup extends Component{
   constructor(props){
       super(props);
       this.state = {
@@ -51,37 +51,22 @@ class JobPosting extends Component{
       return(
         //Form elements with labels and inputs for job title and job description
         <div>
-          <form name="postingInfo" onSubmit={this.handleSubmit} id="posting-form">
+      return (
+      <div className='popup'>
+        <div className='popup_inner'>
+        <form name="postingInfo" onSubmit={this.handleSubmit} id="posting-form">
           <div className="header">Post a Job</div>
             <div className="form-group">
               <input type="text" name="jobTitle" placeholder="Job Title" value ={this.state.text}/>
               <input type="text" name="jobDescription" placeholder="Job Description" value ={this.state.text}/>
               <button onClick ={this.togglePopup.bind(this)}> Submit Job Posting</button>
+              <button id ="closeButton" onClick={this.props.closePopup}>Done</button>
+
             </div>
           </form>
-
-
-        <h6>Form Data (Not to be used in production. For Information Purposes only)</h6>
-        <div><b>Posting ID: </b> {this.state.postingID} </div>
-        <div ><b>Manager ID: </b>{this.state.managerID}  </div>
-        <div >{this.state.jobTitle}</div>
-        <div >{this.state.jobDescription}</div>
-        <div ><b>Company ID: </b>{this.state.companyID} </div>
-        <div ><b>Posting Date: </b>{this.state.postingDate}</div>
-        <h6>Format Data as a JSON File</h6>
-        <div><pre>{JSON.stringify(this.state, null, 2) }</pre></div>
-
-        {this.state.showPopup ?
-          <Popup
-            jobTitle={this.state.jobTitle}
-            jobDescription = {this.state.jobDescription}
-            postingID = {this.state.postingID}
-            postingDate ={this.state.postingDate}
-            managerID = {this.state.managerID}
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
+        </div>
+      </div>
+    );
     </div>
 
   );
@@ -113,4 +98,4 @@ class Popup extends React.Component {
 }
 
 
-export default JobPosting;
+export default JobPostingPopup;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
+  import JobPostingPopup from '../Components/JobPostingPopup';
 
 class JobPostingCard extends Component {
   constructor(props) {
@@ -8,7 +9,16 @@ class JobPostingCard extends Component {
     this.state = {
       showPopup: false
     };
+
   }
+
+
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
 
   render() {
     return (
@@ -17,9 +27,16 @@ class JobPostingCard extends Component {
           <CardBody>
             <CardTitle> Job Posting Card </CardTitle>
             <CardBody> Card Body: Text about card goes here </CardBody>
-            <Button class="btn"> Button </Button>
+            <Button class="btn" onClick={this.togglePopup.bind(this)}> Button </Button>
           </CardBody>
         </Card>
+        {this.state.showPopup ? 
+          <JobPostingPopup
+            text='Close Me'
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
       </div>
     )
   }

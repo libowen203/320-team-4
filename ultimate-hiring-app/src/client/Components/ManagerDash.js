@@ -4,6 +4,7 @@ import JobPostingCard from "./JobPostingCard";
 import OrgChartCard from "./OrgChartCard";
 import CompInfoCard from "./CompInfoCard";
 import ManPostingsCard from "./ManPostingsCard";
+import JobPostingPopup from './JobPostingPopup';
 
 class ManagerDash extends Component {
   constructor() {
@@ -13,6 +14,31 @@ class ManagerDash extends Component {
   render () {
     return (
       <div class="container">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
         <div class="row">
           <div class="col-sm">
             <JobPostingCard />
@@ -26,8 +52,7 @@ class ManagerDash extends Component {
           <div class="col-sm">
             <CompInfoCard />
           </div>
-        </div>
-
+        </div> 
       </div>
     )
 
