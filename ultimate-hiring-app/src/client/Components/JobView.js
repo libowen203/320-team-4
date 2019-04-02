@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import { Container, Row, Col } from 'reactstrap';
+import JobPostingCard from "./JobPostingCard";
 class JobView extends Component {
   render() {
   	axios.get('http://localhost:3001/getData').then(function (response) {
@@ -13,9 +15,23 @@ class JobView extends Component {
 		//always executed, display here
 	})
     return (
-      <div>
-        <h1> Welcome Stranger!</h1>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col sm="6" md={{size: 10, offset: 1}}>
+            <Row>
+              <Col> <JobPostingCard /> </Col>
+              <Col> <JobPostingCard /> </Col>
+              <Col> <JobPostingCard /> </Col>
+            </Row>
+            <br></br>
+            <Row>
+              <Col> <JobPostingCard /> </Col>
+              <Col> <JobPostingCard /> </Col>
+              <Col> <JobPostingCard /> </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }
