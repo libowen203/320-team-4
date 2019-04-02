@@ -21,7 +21,7 @@ class PostJobCard extends Component {
   render() {
     return (
       <div>
-        <Card>
+        <Card style={{width:"100%", height:"60%"}}>
           <CardBody className="text-center">
             <CardHeader tag="h5"> Post a Job</CardHeader>
             <CardBody> Card Body: Text about card goes here </CardBody>

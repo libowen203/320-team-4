@@ -13,8 +13,8 @@ class ManagerDash extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col xs="auto"><RecentPostings /></Col>
-          <Col sm="12" md={{size: 6, offset: 2}}>
+          <Col xs="auto"> <RecentPostings /></Col>
+          <Col sm="12" md={{size: 6, offset: 1}}>
             <Row>
               <Col> <OrgChartCard /> </Col>
               <Col> <CompInfoCard /> </Col>
