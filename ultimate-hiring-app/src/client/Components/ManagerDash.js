@@ -4,7 +4,7 @@ import PostJobCard from "./PostJobCard";
 import OrgChartCard from "./OrgChartCard";
 import CompInfoCard from "./CompInfoCard";
 import ManPostingsCard from "./ManPostingsCard";
-import JobPostingPopup from './JobPostingPopup';
+import JobPostingPopup from './PostJobPopup';
 import RecentPostings from "./RecentPostings";
 
 class ManagerDash extends Component {
