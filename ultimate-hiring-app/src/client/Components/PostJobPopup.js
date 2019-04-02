@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 
-class JobPostingPopup extends Component{
+class PostJobPopup extends Component{
   constructor(props){
       super(props);
       this.state = {
@@ -111,4 +111,4 @@ class Popup extends React.Component {
 }
 
 
-export default JobPostingPopup;
+export default PostJobPopup;
