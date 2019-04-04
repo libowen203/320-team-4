@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const JobPosting = require('../models/JobPosting');
+const JobPosting = require('../models/JobPostingJSON');
 
 const app = express()
 const router = express.Router()
@@ -36,6 +36,7 @@ app.post("/putData", (req, res) => {
   job.managerID = req.body.managerID
   job.postedDate = req.body.postingDate
 
+  console.log(job.title)
   job.save(err => { //sends object to database
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
