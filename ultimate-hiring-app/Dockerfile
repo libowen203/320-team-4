@@ -1,5 +1,5 @@
 FROM node:10.15.3
-# set working directory (for macOS/linux)
+# set working directory (for macOS/linux/windows)
 RUN mkdir -p /usr/src/app
 
 # set working directory
