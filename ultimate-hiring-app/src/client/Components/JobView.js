@@ -6,7 +6,9 @@ class JobView extends Component {
   render() {
   	axios.get('http://localhost:3001/getData').then(function (response) {
 	//handle success
-	// Shows form data: console.log(response.data)
+  // Shows form data: console.log(response.data)
+    console.log(response.data)
+    this.state.jobs = response.data
 	})
 	.catch(function(error){
 		//alert("Error retrieving job posting data")
