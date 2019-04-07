@@ -3,36 +3,30 @@ import axios from 'axios'
 import { Container, Row, Col } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 class JobView extends Component {
+
+  state = {
+    jobs: []
+  }
+
+  componentDidMount(){
+    this.getJobs();
+  }
+
+  getJobs = async () => {
+    let res = await axios.get('http://localhost:3001/getData');
+    let {data} = await res.data;
+    this.setState({jobs: data})
+  };
+
   render() {
-  	axios.get('http://localhost:3001/getData').then(function (response) {
-	//handle success
-  // Shows form data: console.log(response.data)
-    console.log(response.data)
-    this.state.jobs = response.data
-	})
-	.catch(function(error){
-		//alert("Error retrieving job posting data")
-	})
-	.then(function(){
-		//always executed, display here
-	})
     return (
       <Container fluid>
-        <Row>
-          <Col sm="6" md={{size: 10, offset: 1}}>
-            <Row>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-            </Row>
-            <br></br>
-            <Row>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-            </Row>
-          </Col>
-        </Row>
+        <React.Fragment>
+          {this.state.jobs.map(job =>{
+            console.log("HELLO")
+            return (<JobPostingCard job={job}/>)
+          })}
+        </React.Fragment>            
       </Container>
     )
   }
