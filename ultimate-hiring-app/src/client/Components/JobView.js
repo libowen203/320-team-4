@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 class JobView extends Component {
   render() {
@@ -31,8 +31,32 @@ class JobView extends Component {
             </Row>
           </Col>
         </Row>
+        <Pagination aria-label="Page navigation example">
+        <PaginationItem disabled>
+            <PaginationLink first href="#" />
+          </PaginationItem>
+          <PaginationItem disabled>
+            <PaginationLink previous href="#" />
+          </PaginationItem>
+          <PaginationItem active>
+            <PaginationLink href="#">
+              1
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">
+              2
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">
+              3
+            </PaginationLink>
+          </PaginationItem>
+        </Pagination>
       </Container>
-    )
+      
+    );
   }
 }
 export default JobView;
