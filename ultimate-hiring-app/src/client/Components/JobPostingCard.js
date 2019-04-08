@@ -22,7 +22,7 @@ class JobPostingCard extends Component {
 
   render() {
     return (
-      <div>
+      <div style={this.props.invisible ? {opacity: 0} : {opacity: 100}}>
         <Card style={{width:"100%", height:"60%"}}>
           <CardBody className="text-center">
             <CardHeader tag="h5"> {this.props.title}</CardHeader>

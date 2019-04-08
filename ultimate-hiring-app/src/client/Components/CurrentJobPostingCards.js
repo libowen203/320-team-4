@@ -40,8 +40,11 @@ location:'Location 11',
 description:'Description 11'},
 {title:'Title 12',
 location:'Location 12',
-description:'Description 12'}
-]
+description:'Description 12'},
+  {title:'Title 13',
+    location:'Location 13',
+    description:'Description 13'}
+];
 
 
 
@@ -76,22 +79,24 @@ class CurrentJobPostingCards extends Component {
   
 
     //Logic for displaying 6 cards per page
-    const JobPostingCardArray = currentJobPosting.map(function (object, index) {
+    let JobPostingCardArray = currentJobPosting.map(function (object, index) {
+      console.log(index);
 if(index %6===0){
- 
-  return (<div>
+  console.log("Using " + index);
+  return (
+      <div>
     <Row>
           <Col sm="6" md={{size: 10, offset: 1}}>
             <Row>
               <Col> <JobPostingCard title ={jobs[(currentPage -1)*6 + index%6].title} location ={jobs[(currentPage -1)*6 + index%6].location} description= {jobs[(currentPage -1)*6 + index%6].description}/> </Col>
-              <Col> <JobPostingCard title ={jobs[(currentPage -1)*6 + (index+1)%6].title} location ={jobs[(currentPage -1)*6 + (index+1)%6].location} description= {jobs[(currentPage -1)*6 + (index+1)%6].description}/> </Col>
-              <Col> <JobPostingCard title ={jobs[(currentPage -1)*6 + (index+2)%6].title} location ={jobs[(currentPage -1)*6 + (index+2)%6].location} description= {jobs[(currentPage -1)*6 + (index+2)%6].description}/> </Col>
+              <Col> <JobPostingCard invisible={(currentPage - 1) * 6 + (index + 2) % 6 >= jobs.length} title ={(currentPage -1)*6 + (index+1)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+1)%6].title : ""} location ={(currentPage -1)*6 + (index+1)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+1)%6].location : ""} description= {(currentPage -1)*6 + (index+1)%6 < jobs.length ?jobs[(currentPage -1)*6 + (index+1)%6].description : ""}/> </Col>
+              <Col> <JobPostingCard invisible={(currentPage - 1) * 6 + (index + 3) % 6 >= jobs.length} title ={(currentPage -1)*6 + (index+2)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+2)%6].title : ""} location ={(currentPage -1)*6 + (index+2)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+2)%6].location : ""} description= {(currentPage -1)*6 + (index+2)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+2)%6].description : ""}/> </Col>
             </Row>
             <br></br>
             <Row>
-            <Col> <JobPostingCard title ={jobs[(currentPage -1)*6 + (index+3)%6].title} location ={jobs[(currentPage -1)*6 + (index+3)%6].location} description= {jobs[(currentPage -1)*6 + (index+3)%6].description}/> </Col>
-            <Col> <JobPostingCard title ={jobs[(currentPage -1)*6 + (index+4)%6].title} location ={jobs[(currentPage -1)*6 + (index+4)%6].location} description= {jobs[(currentPage -1)*6 + (index+4)%6].description}/> </Col>            
-            <Col> <JobPostingCard title ={jobs[(currentPage -1)*6 + (index+5)%6].title} location ={jobs[(currentPage -1)*6 + (index+5)%6].location} description= {jobs[(currentPage -1)*6 + (index+5)%6].description}/> </Col>            
+            <Col> <JobPostingCard invisible={(currentPage - 1) * 6 + (index + 3) % 6 >= jobs.length} title ={(currentPage -1)*6 + (index+3)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+3)%6].title : ""} location ={(currentPage -1)*6 + (index+3)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+3)%6].location : ""} description= {(currentPage -1)*6 + (index+3)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+3)%6].description : ""}/> </Col>
+            <Col> <JobPostingCard invisible={(currentPage - 1) * 6 + (index + 4) % 6 >= jobs.length} title ={(currentPage -1)*6 + (index+4)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+4)%6].title : ""} location ={(currentPage -1)*6 + (index+4)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+4)%6].location : ""} description= {(currentPage -1)*6 + (index+4)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+4)%6].description : ""}/> </Col>
+            <Col> <JobPostingCard invisible={(currentPage - 1) * 6 + (index + 5) % 6 >= jobs.length} title ={(currentPage -1)*6 + (index+5)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+5)%6].title : ""} location ={(currentPage -1)*6 + (index+5)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+5)%6].location : ""} description= {(currentPage -1)*6 + (index+5)%6 < jobs.length ? jobs[(currentPage -1)*6 + (index+5)%6].description : ""}/> </Col>
 
             </Row>
           </Col>
