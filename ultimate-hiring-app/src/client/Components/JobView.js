@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
+import CurrentJobPostingCards from './CurrentJobPostingCards';
+
 class JobView extends Component {
   render() {
   	axios.get('http://localhost:3001/getData').then(function (response) {
@@ -15,24 +17,13 @@ class JobView extends Component {
 		//always executed, display here
 	})
     return (
-      <Container fluid>
-        <Row>
-          <Col sm="6" md={{size: 10, offset: 1}}>
-            <Row>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-            </Row>
-            <br></br>
-            <Row>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-              <Col> <JobPostingCard /> </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    )
+      //Renders current six cards from job postings array
+<CurrentJobPostingCards />
+      );
   }
 }
+
 export default JobView;
+
+
+
