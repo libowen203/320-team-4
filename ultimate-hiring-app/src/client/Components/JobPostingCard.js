@@ -25,9 +25,9 @@ class JobPostingCard extends Component {
       <div>
         <Card style={{width:"100%", height:"60%"}}>
           <CardBody className="text-center">
-            <CardHeader tag="h5"> Job Title</CardHeader>
-            <CardSubtitle> Job Location </CardSubtitle>
-            <CardBody>Job Description </CardBody>
+            <CardHeader tag="h5"> {this.props.job.title}</CardHeader>
+            <CardSubtitle> {this.props.job.companyName}</CardSubtitle>
+            <CardBody>{this.props.job.description} </CardBody>
             <Button class="btn" onClick={this.togglePopup.bind(this)}> Apply </Button>
           </CardBody>
         </Card>
