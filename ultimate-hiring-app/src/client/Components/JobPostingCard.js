@@ -38,6 +38,7 @@ class JobPostingCard extends Component {
               : null
           }
         </div>
+
     )
   }
 }

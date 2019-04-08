@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 import CurrentJobPostingCards from "./CurrentJobPostingCards";
 class JobView extends Component {
@@ -34,7 +34,7 @@ class JobView extends Component {
 
 		return <div>Loading...</div>;
 	}
+
 }
+
 export default JobView;
-
-

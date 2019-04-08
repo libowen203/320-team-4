@@ -8,6 +8,7 @@ import JobPostingCard from "./JobPostingCard";
 
 
 
+
 class CurrentJobPostingCards extends Component {
   constructor(props) {
     super(props);
