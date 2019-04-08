@@ -2,33 +2,39 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import { Container, Row, Col } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
+import CurrentJobPostingCards from "./CurrentJobPostingCards";
 class JobView extends Component {
 
-  state = {
-    jobs: []
-  }
+	state = {
+		jobs: null
+	};
 
-  componentDidMount(){
-    this.getJobs();
-  }
+	componentDidMount(){
+		this.getJobs();
+	}
 
-  getJobs = async () => {
-    let res = await axios.get('http://localhost:3001/getData');
-    let {data} = await res.data;
-    this.setState({jobs: data})
-  };
+	getJobs = async () => {
+		let res = await axios.get('http://localhost:3001/getData');
+		let {data} = await res.data;
+		console.log(data);
+		this.setState({jobs: data})
+	};
 
-  render() {
-    return (
-      <Container fluid>
-        <React.Fragment>
-          {this.state.jobs.map(job =>{
-            console.log("HELLO")
-            return (<JobPostingCard job={job}/>)
-          })}
-        </React.Fragment>            
-      </Container>
-    )
-  }
+	render() {
+		if (this.state.jobs) {
+
+			return (
+				<Container fluid>
+					<React.Fragment>
+						<CurrentJobPostingCards jobs={this.state.jobs}/>
+					</React.Fragment>
+				</Container>
+			)
+		}
+
+		return <div>Loading...</div>;
+	}
 }
 export default JobView;
+
+
