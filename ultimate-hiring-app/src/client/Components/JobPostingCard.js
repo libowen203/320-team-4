@@ -25,15 +25,14 @@ class JobPostingCard extends Component {
       <div>
         <Card style={{width:"100%", height:"60%"}}>
           <CardBody className="text-center">
-            <CardHeader tag="h5"> Job Title</CardHeader>
-            <CardSubtitle> Job Location </CardSubtitle>
-            <CardBody>Job Description </CardBody>
+            <CardHeader tag="h5"> {this.props.title}</CardHeader>
+            <CardSubtitle> {this.props.location} </CardSubtitle>
+            <CardBody>{this.props.description} </CardBody>
             <Button class="btn" onClick={this.togglePopup.bind(this)}> Apply </Button>
           </CardBody>
         </Card>
         {this.state.showPopup ?
           <JobPostingPopup
-            text='Close Me'
             closePopup={this.togglePopup.bind(this)}
           />
           : null
