@@ -1,59 +1,20 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+import axios from 'axios/index'
 import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 
 //Hardcoded data (Should be replaced by data from backend)
-let jobs = [
-  {title:'Title 1',
-location:'Location 1',
-description:'Description 1'},
-{title:'Title 2',
-location:'Location 2',
-description:'Description 2'},
-{title:'Title 3',
-location:'Location 3',
-description:'Description 3'},
-{title:'Title 4',
-location:'Location 4',
-description:'Description 4'},
-{title:'Title 5',
-location:'Location 5',
-description:'Description 5'},
-{title:'Title 6',
-location:'Location 6',
-description:'Description 6'},
-{title:'Title 7',
-location:'Location 7',
-description:'Description 7'},
-{title:'Title 8',
-location:'Location 8',
-description:'Description 8'},
-{title:'Title 9',
-location:'Location 9',
-description:'Description 9'},
-{title:'Title 10',
-location:'Location 10',
-description:'Description 10'},
-{title:'Title 11',
-location:'Location 11',
-description:'Description 11'},
-{title:'Title 12',
-location:'Location 12',
-description:'Description 12'},
-  {title:'Title 13',
-    location:'Location 13',
-    description:'Description 13'}
-];
+
 
 
 
 
 class CurrentJobPostingCards extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(this.props);
     this.state = {
-      jobsList: jobs,
+      jobsList: this.props.jobs,
       currentPage: 1,
       jobsPerPage: 6
     };
