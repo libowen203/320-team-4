@@ -22,14 +22,14 @@ code {
 /*General stylings of JobPosting form*/
 .form-group{
 	font-size: 16px;
-	padding: 10px;
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
+	padding: 15px;
+	//border-top: 1px solid black;
+	//border-right: 1px solid black;
+	//border-left: 1px solid black;
+	//border-bottom: 1px solid black;
 	width: 300px;
 	margin: auto;
-	background-color: #D3D3D3;
+	//background-color: #D3D3D3;
 }
 
 /*Sylings for submit button*/
@@ -59,10 +59,10 @@ code {
 .popup_inner {
 	position: absolute;
 	font-size: 8px;
-  left: 10%;
-  right: 10%;
+  left: 40%;
+  //right: 10%;
   top: 10%;
-  bottom: 10%;
+  //bottom: 10%;
   margin: auto;
 	background: #E3E3E3;
 	border-radius: 15px;
