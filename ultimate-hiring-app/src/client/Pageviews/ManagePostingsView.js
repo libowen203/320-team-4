@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import JobView from '../Components/JobView';
 import LogInbutton from '../Components/LogInbutton';
+import ManagePostings from '../Components/ManagePostings';
 
 class ManagePostingsView extends Component {
     render() {
@@ -10,7 +11,7 @@ class ManagePostingsView extends Component {
               <LogInbutton />
             </header>
             <div className = "container">
-            <JobView />
+            <ManagePostings />
             </div>
           </div>
         );

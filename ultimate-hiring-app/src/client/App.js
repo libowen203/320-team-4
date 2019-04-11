@@ -18,7 +18,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component ={PublicView}/>
               <Route exact path="/ManagerView" component= {ManagerView}/>
-              <Route exact path="/ManageJobPosting" component= {ManagePostingsView}/>
+              <Route exact path="/ManagePostingsView" component= {ManagePostingsView}/>
               <Route component= {ErrorPage}/>
             </Switch>
             </main>
