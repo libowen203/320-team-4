@@ -62,7 +62,7 @@ class PostJobPopup extends Component{
                 jobDescription: form.jobDescription.value,
                 startDate: form.startDate.value,
                 expirationDate: form.expirationDate.value,
-                customFieldValues: Object.values(this.state.customFields.values)
+                customFieldValues: Object.values(this.state.customFields)
             }, () => { //callback param ensures that setstate occurs before post
                 //push data via backend
                 console.log('POST');
