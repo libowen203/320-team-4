@@ -10,7 +10,7 @@ const JobPosting = require('../models/JobPostingJSON');
 const app = express()
 const router = express.Router()
 
-const dbRoute = "mongodb://127.0.0.1:27017/scrumgang_server"
+const dbRoute = "mongodb://3.18.251.248/scrumgang_server"
 const API_PORT = 3001
 
 app.use(cors()) //makes app work with cors
@@ -49,5 +49,30 @@ app.get("/getData",(req, res) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   })});
+
+app.post("/addEmployee", (req, res) => {
+  employee = new Employee()
+
+  employee.firstName = req.body.firstName
+  employee.lastName = req.body.lastName
+  employee.email = req.body.email
+  employee.companyId = req.body.companyId
+  employee.companyName = req.body.companyName
+  employee.positionTitle = req.body.positionTitle
+  employee.startDate = req.body.startDate
+
+  console.log(employee.firstName)
+  employee.save(err => { //sends object to database
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true });
+  });
+app.get("/getEmployee",(req, res) => {
+  console.log("getting data")
+  Employee.find((err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data });
+  })});
+
+});
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
