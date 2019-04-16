@@ -13,7 +13,7 @@ export default class ManPostingsCard extends React.Component {
           <CardBody className="text-center">
             <CardHeader tag="h5"> Manage Job Postings </CardHeader>
             <CardBody> Card Body: Text about card goes here </CardBody>
-            <Link to="/ManagePostingsView">
+            <Link to="/ManageJobPostingsView">
      <Button class="btn" type="button">
           Click Me!
      </Button>

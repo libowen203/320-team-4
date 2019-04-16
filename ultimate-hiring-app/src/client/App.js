@@ -4,8 +4,8 @@ import Menu from './Components/Menu';
 
 import PublicView from './Pageviews/PublicView';
 import ManagerView from './Pageviews/ManagerView';
+import ManageJobPostingsView from './Pageviews/ManageJobPostingsView';
 import ErrorPage from './Pageviews/ErrorPage';
-import ManagePostingsView from './Pageviews/ManagePostingsView';
 
 class App extends Component {
     render() {
@@ -18,7 +18,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component ={PublicView}/>
               <Route exact path="/ManagerView" component= {ManagerView}/>
-              <Route exact path="/ManagePostingsView" component= {ManagePostingsView}/>
+              <Route exact path="/ManageJobPostingsView" component= {ManageJobPostingsView}/>
               <Route component= {ErrorPage}/>
             </Switch>
             </main>

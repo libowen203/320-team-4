@@ -3,11 +3,6 @@ import axios from 'axios/index'
 import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 
-//Hardcoded data (Should be replaced by data from backend)
-
-
-
-
 
 class CurrentJobPostingCards extends Component {
   constructor(props) {

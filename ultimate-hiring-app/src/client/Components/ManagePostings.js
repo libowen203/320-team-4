@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import JobPostingCard from "./JobPostingCard";
 import CurrentJobPostingCards from "./CurrentJobPostingCards";
-
+import EditableJobPostingCards from "./EditableJobPostingCards";
 
 class ManagePostings extends React.Component {
     state = {
@@ -27,7 +27,7 @@ class ManagePostings extends React.Component {
 			return (
 				<Container fluid>
 					<React.Fragment>
-						<CurrentJobPostingCards jobs={this.state.jobs}/>
+						<EditableJobPostingCards jobs={this.state.jobs}/>
 					</React.Fragment>
 				</Container>
 			)
