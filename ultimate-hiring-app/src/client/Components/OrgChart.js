@@ -27,33 +27,61 @@ const chart=[
 
 class OrgChart extends Component {
 
-    
+    state = {
+      employees: null
+    }
 
     togglePopup() {
         console.log("TOGGLE")
         this.setState({
-            showPopup: !this.state.showPopup
+            showPopup: !this.state.showPopup,
+            employees: []
         });
     }
 
+    componentDidMount(){ //when component is created, gets employees
+  		this.getEmployees();
+  	}
+
+    getEmployees = async () => { //when called, runs in background to load employee data
+      console.log("GETTING")
+  		let res = await axios.get('http://localhost:3001/getEmployee');
+      console.log("RES")
+  		let {data} = await res.data;
+  		console.log(data);
+      console.log("DONe")
+  		this.setState({employees: data})
+  	};
+
     render() {
+      if (this.state.employees) {
+        let employees = []
+        this.state.employees.forEach(function(element){
+          employees.push(element) //push employees from state to array
+          //TODO: make employee node class where each employee has other employees below them
+          //employees should be populated from their previous nodes, not necessarily in an array
+          //can be formatted to the style of const chart above
+        })
 
         return (
             //React graph to build org chart
             <div>
-                return (
                     <div className='popup'>
                         <div className='popup_inner'>
                             <div id="treeWrapper" syle={{width: '20cm', height: '20cm'}}>
-                                <Tree data={chart}/>
+                                <Tree data={chart, this.state.employees}/>
                             </div>
                             <button id ="closeButton" onClick={this.props.closePopup}>Close</button>
                         </div>
                     </div>
-                 );
             </div>
 
-        );
+        );}
+      else{ //calls when there are no employees
+        return (<div>
+        <h1> Loading </h1>
+        </div>)
+      }
     }
 }
 

@@ -6,6 +6,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const JobPosting = require('../models/JobPostingJSON');
+const Employee = require('../models/EmployeeJSON')
 
 const app = express()
 const router = express.Router()
@@ -44,7 +45,6 @@ app.post("/putData", (req, res) => {
 });
 
 app.get("/getData",(req, res) => {
-  console.log("getting data")
   JobPosting.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
@@ -65,14 +65,16 @@ app.post("/addEmployee", (req, res) => {
   employee.save(err => { //sends object to database
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
+    });
   });
-app.get("/getEmployee",(req, res) => {
-  console.log("getting data")
+app.get("/getEmployee", (req, res) => {
   Employee.find((err, data) => {
-    if (err) return res.json({ success: false, error: err });
+    if (err){
+      console.log(err)
+    return res.json({ success: false, error: err });
+    }
     return res.json({ success: true, data: data });
   })});
 
-});
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

@@ -26,7 +26,7 @@ export default class OrgChartCard extends React.Component {
           <CardBody className="text-center">
             <CardHeader tag="h5"> View Org Chart </CardHeader>
             <CardBody> View Where Yourself and Coworkers Stand in your Company </CardBody>
-            <Button class="btn" onClick={this.togglePopup.bind(this)}> View Chart </Button>
+            <Button className="btn" onClick={this.togglePopup.bind(this)}> View Chart </Button>
          </CardBody>
         </Card>
         {this.state.showPopup ?
