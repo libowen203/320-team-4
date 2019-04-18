@@ -67,7 +67,7 @@ if(index %6===0){
 
 
 
-  })
+  });
     
 
     // Logic for displaying page numbers
