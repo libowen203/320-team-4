@@ -54,7 +54,17 @@ class PostJobPopup extends Component{
             errorLabel.className = "invalid";
             errorLabel.innerHTML = "Please enter a valid job description";
             valid = false;
-        }
+        } else
+            if (Object.keys(this.state.customFields).length > 0) { //Test if made a custom field but left it empty
+                Object.values(this.state.customFields).forEach(function testForEmpty(item) {
+                    console.log(item, item.toString(), item.toString().trim() === "");
+                   if (item.toString().trim() === "") {
+                       errorLabel.className = "invalid";
+                       errorLabel.innerHTML = "Please fill out all created custom fields";
+                       valid = false;
+                   }
+                });
+            }
 
         if (valid) {
             this.setState({
