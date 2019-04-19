@@ -17,6 +17,14 @@ const chart=[
                         keyB: 'val B',
                         keyC: 'val C',
                     },
+                    children:[
+                      {
+                        name: 'Test',
+                        attributes:{
+                          keyA: 'A'
+                        }
+                      }
+                    ]
                 },
                 {
                     name: 'Level 2: B',
@@ -45,6 +53,7 @@ class OrgChart extends Component {
 
     getEmployees = async () => { //when called, runs in background to load employee data
       console.log("GETTING")
+      //TODO: route to /orgChart, make /orgChart build a tree in server.js
   		let res = await axios.get('http://localhost:3001/getEmployee');
       console.log("RES")
   		let {data} = await res.data;

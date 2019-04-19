@@ -67,14 +67,25 @@ app.post("/addEmployee", (req, res) => {
     return res.json({ success: true });
     });
   });
+
 app.get("/getEmployee", (req, res) => {
-  Employee.find((err, data) => {
+  Employee.find({companyId: 1}, null, {sort: 'managerId'}, (err, data) => {
     if (err){
       console.log(err)
-    return res.json({ success: false, error: err });
+      return res.json({ success: false, error: err });
     }
     return res.json({ success: true, data: data });
   })});
+
+app.get("/orgChart", (req, res) => {
+  Employee.find({companyId: 1, managerId: {$exists: false}}, (err, data) => {
+    if(err){
+      console.log(err)
+      return res.json({success: false, error: err})
+    }
+    return res.json({success: true, error: err})
+    })
+  })
 
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
