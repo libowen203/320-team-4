@@ -19,15 +19,99 @@ const chart=[
                     },
                     children:[
                       {
-                        name: 'Test',
+                        name: 'Level 3: A',
                         attributes:{
                           keyA: 'A'
-                        }
+                        },
+                        children:[
+                          {
+                            name: 'Level 4: A',
+                            attributes:{
+                              keyA: 'A'
+                            },
+                            children:[
+                              {
+                                name: 'Level 5: A',
+                                attributes:{
+                                  keyA: 'A'
+                                }
+                              },
+                              {
+                                name: 'Level 5: B',
+                                attributes:{
+                                  keyA: 'A'
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            name: 'Level 4: B',
+                            attributes:{
+                              keyA: 'A'
+                            },
+                            children: [
+                              {
+                                name: 'Level 5: C',
+                                attributes:{
+                                  keyA: 'A'
+                                },
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        name: 'Level 3: B',
+                        attrubutes:{
+                          keyA: 'A'
+                        },
+                        children: [
+                          {
+                            name: 'Level 4: C',
+                            attributes:{
+                              keyA: 'A'
+                            },
+                            children:[
+                              {
+                                name: 'Level 5: D',
+                                attributes:{
+                                  keyA: 'A'
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            name: 'Level 4 : D',
+                            attributes:{
+                              keyA: 'A'
+                            },
+                            children:[
+                              {
+                                name: 'Level 5: E',
+                                attribute:{
+                                  keyA: 'A'
+                                }
+                              }
+                            ]
+                          }
+                        ]
                       }
                     ]
                 },
                 {
                     name: 'Level 2: B',
+                    attributes:{
+                      keyA: 'val A',
+                      keyB: 'val B',
+                      keyC: 'val C',},
+                    children:[
+                      {
+                        name: 'Level 3: C',
+                        attributes:{
+                          keyA: 'A'
+                        }
+                      }
+                    ]
                 },
             ],
         },
