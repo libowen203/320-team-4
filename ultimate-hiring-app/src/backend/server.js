@@ -50,4 +50,13 @@ app.get("/getData",(req, res) => {
     return res.json({ success: true, data: data });
   })});
 
+  app.delete('/items/:id', (req, res) => {
+    job = new JobPosting();
+    job.remove({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
+      if (err) return console.log(err)
+      console.log(req.body)
+      res.redirect('/')
+    })
+  })
+
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
