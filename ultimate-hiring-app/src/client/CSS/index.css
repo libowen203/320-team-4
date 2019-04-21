@@ -13,6 +13,13 @@ code {
     monospace;
 }
 
+.card {
+	position: absolute;
+	height: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
 .header{
 	position: absolute;
 	font-size: 28px;
@@ -57,7 +64,7 @@ code {
 
 .vertical-center {
 	margin: 0;
-	position: absolute;
+	position: relative;
 	top: 50%;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
@@ -143,6 +150,57 @@ code {
 	border-radius: 15px;
 
 
+}
+
+.c1 {
+	position: absolute;
+	height: 40%;
+	left: 12.5%;
+	width: 25%;
+	padding: 10px;
+}
+
+.c2 {
+	position: absolute;
+	height: 40%;
+	left: 37.5%;
+	width: 25%;
+	padding: 10px;
+}
+
+.c3 {
+	position: absolute;
+	height: 40%;
+	width: 25%;
+	left: 62.5%;
+	padding: 10px;
+}
+
+.c4 {
+	position: absolute;
+	height: 40%;
+	top: 51%;
+	left: 12.5%;
+	width: 25%;
+	padding: 10px;
+}
+
+.c5 {
+	position: absolute;
+	height: 40%;
+	top: 51%;
+	left: 37.5%;
+	width: 25%;
+	padding: 10px;
+}
+
+.c6 {
+	position: absolute;
+	height: 40%;
+	top: 51%;
+	width: 25%;
+	left: 62.5%;
+	padding: 10px;
 }
 
 h1 {
