@@ -6,6 +6,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const JobPosting = require('../models/JobPostingJSON');
+const JobApplication = require('../models/JobApplicationJSON');
+
 
 const app = express()
 const router = express.Router()
@@ -39,6 +41,21 @@ app.post("/putData", (req, res) => {
   job.customFields = req.body.customFieldValues;
 
   job.save(err => { //sends object to database
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true });
+  });
+});
+
+app.post("/putApp", (req, res) => {
+  application = new JobApplication(); //based on Mongoose schema
+
+  application.firstName = req.body.fname;
+  console.log(application.firstName);
+
+  application.lastName = req.body.lname;
+  application.email = req.body.email;
+
+  application.save(err => { //sends object to database
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
