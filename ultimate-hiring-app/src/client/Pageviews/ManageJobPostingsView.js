@@ -6,7 +6,7 @@ import ManagePostings from '../Components/ManagePostings';
 class ManagePostingsView extends Component {
     render() {
         return (
-          <div class = "view">
+          <div className = "view">
             <header>
               <LogOutButton />
             </header>

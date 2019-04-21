@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
-import JobPostingCard from "./JobPostingCard";
-import CurrentJobPostingCards from "./CurrentJobPostingCards";
+import { Container} from 'reactstrap';
 import EditableJobPostingCards from "./EditableJobPostingCards";
 
 class ManagePostings extends React.Component {
