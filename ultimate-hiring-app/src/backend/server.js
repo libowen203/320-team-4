@@ -77,15 +77,26 @@ app.get("/getEmployee", (req, res) => {
     return res.json({ success: true, data: data });
   })});
 
-app.get("/orgChart", (req, res) => {
-  Employee.find({companyId: 1, managerId: {$exists: false}}, (err, data) => {
-    if(err){
-      console.log(err)
-      return res.json({success: false, error: err})
-    }
-    return res.json({success: true, error: err})
-    })
+app.get("/orgChart/", (req, res) => {
+  id = req.params.managerId
+  if(!id){
+    Employee.find({companyId: 1, managerId: {$exists: false}}, (err, data) => {
+      if (err){
+        console.log(err)
+        return res.json({ success: false, error: err });
+      }
+      return res.json({ success: true, data: data });
+    })}
+  else{
+    Employee.find({companyId: 1, managerId: id}, (err, data) => {
+      if (err){
+        console.log(err)
+        return res.json({ success: false, error: err });
+      }
+      return res.json({ success: true, data: data });
+    })}
   })
+
 
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

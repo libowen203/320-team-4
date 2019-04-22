@@ -135,16 +135,24 @@ class OrgChart extends Component {
   		this.getEmployees();
   	}
 
-    getEmployees = async () => { //when called, runs in background to load employee data
+    getEmployees = async (id) => { //when called, runs in background to load employee data
       console.log("GETTING")
+      console.log(id)
       //TODO: route to /orgChart, make /orgChart build a tree in server.js
-  		let res = await axios.get('http://localhost:3001/getEmployee');
       console.log("RES")
+      id = 1
+      let res = await axios.get('http://localhost:3001/orgChart', {params: {managerId: id}});
   		let {data} = await res.data;
   		console.log(data);
       console.log("DONe")
+      let caller = this
+      data.forEach(function(employee){
+        console.log(employee.id)
+        employee.branches = caller.getEmployees(employee.id)
+      })
   		this.setState({employees: data})
   	};
+
 
     render() {
       if (this.state.employees) {
@@ -162,7 +170,7 @@ class OrgChart extends Component {
                     <div className='popup'>
                         <div className='popup_inner'>
                             <div id="treeWrapper" syle={{width: '20cm', height: '20cm'}}>
-                                <Tree data={chart, this.state.employees}/>
+                                <Tree data={chart}/>
                             </div>
                             <button id ="closeButton" onClick={this.props.closePopup}>Close</button>
                         </div>
