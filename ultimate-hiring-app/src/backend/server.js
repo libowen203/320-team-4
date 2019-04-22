@@ -44,6 +44,9 @@ app.post("/putData", (req, res) => {
   });
 });
 
+
+//Called from EditJobPostingPopup.js
+//Modifies Job by using ID
 app.post("/updateData", (req, res) => {
  
 
@@ -55,6 +58,7 @@ app.post("/updateData", (req, res) => {
   })
 });
 
+
 app.get("/getData",(req, res) => {
   console.log("getting data")
   JobPosting.find((err, data) => {
@@ -62,7 +66,8 @@ app.get("/getData",(req, res) => {
     return res.json({ success: true, data: data });
   })});
 
-  
+//Called by EditJobPostingCard when delete button is pressed.
+//Deletes Job by using ID
   app.post("/deleteJobPosting", (req, res) => {
     JobPosting.deleteOne({_id: new mongodb.ObjectId( req.body.id)}, (err, result) => {
       if (err) return console.log(err)

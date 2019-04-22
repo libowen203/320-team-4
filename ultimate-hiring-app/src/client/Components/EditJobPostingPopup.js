@@ -9,7 +9,7 @@ class EditJobPostingPopup extends Component{
       this.state = {
         job: this.props.job,  
         jobTitle: this.props.job.title,
-          jobDescription: this.props.job.description,
+        jobDescription: this.props.job.description,
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.togglePopup = this.togglePopup.bind(this);
@@ -35,27 +35,9 @@ this.setState({jobTitle: event.target.value})
 
 //Method for action after hitting the submit button
     handleSubmit = (event) => {
-        event.preventDefault();
-        //let form = document.forms.postingInfo;
-        console.log(this.state.jobTitle);
-        console.log(this.state.job._id);
+        event.preventDefault();  
         axios.post('http://localhost:3001/updateData', this.state);
-        //console.log(this.state.jobDescription);
-
-        //format data according to data dump
-        //NOTE: data dump doesn't include posting ID. I'm wondering if we need it or if we'll always query by manager id and position title
-        //for example, an employee wouldn't apply for a posting. They'd apply to a title. Then positions would be filled as they're filled
-        /*this.setState({
-          jobTitle: form.title.value,
-          jobDescription: form.description.value,
-      },() => { //callback param ensures that setstate occurs before post
-        //push data via backend
-        console.log('POST')
-        axios.post('http://localhost:3001/postData', this.state)
-        this.props.closePopup()
-      });*/
-      //document.getElementById("posting-form").reset();
-
+        this.props.closePopup();
       }
 
 
@@ -67,7 +49,7 @@ this.setState({jobTitle: event.target.value})
       return (
       <div className='popup'>
         <div className='popup_inner'>
-        <form name="postingInfo" onSubmit={this.handleSubmit} id="posting-form">
+        <form name="postingInfo" onSubmit={this.handleSubmit} id="editable-posting-form">
           <div className="header">Edit Job</div>
             <div className="form-group" >
              <h6>{this.props.title}</h6>

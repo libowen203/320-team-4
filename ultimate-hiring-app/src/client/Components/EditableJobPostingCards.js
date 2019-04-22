@@ -3,7 +3,10 @@ import axios from 'axios'
 import { Container, Row, Col, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import ManageableJobPostingCard from "./ManageableJobPostingCard";
 
-
+//Called by ManagePostings.JS
+//Modified version of JobPostingCards that has edit and delete functionality
+//Renders EditJobPostingPopup.js if edit button is pressed
+//Deletes job if delete button is pressed
 class EditableJobPostingCards extends Component {
   constructor(props) {
     super(props);
