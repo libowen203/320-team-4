@@ -6,6 +6,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const JobPosting = require('../models/JobPostingJSON');
+var mongodb = require('mongodb');
+
 
 const app = express()
 const router = express.Router()
@@ -21,7 +23,6 @@ mongoose.connect(
   dbRoute,
   { useNewUrlParser: true }
 );
-
 let db = mongoose.connection
 
 db.once("open", () => console.log("connected"))
@@ -43,6 +44,17 @@ app.post("/putData", (req, res) => {
   });
 });
 
+app.post("/updateData", (req, res) => {
+ 
+
+  JobPosting.updateOne({"_id": new mongodb.ObjectId(req.body.job._id)},
+  {$set:{"title": req.body.jobTitle, "description":req.body.jobDescription}}, (err, result) => {
+    if (err) return console.log(err)
+    console.log(req.body)
+    return res.json({success: true});
+  })
+});
+
 app.get("/getData",(req, res) => {
   console.log("getting data")
   JobPosting.find((err, data) => {
@@ -50,13 +62,13 @@ app.get("/getData",(req, res) => {
     return res.json({ success: true, data: data });
   })});
 
-  app.delete('/items/:id', (req, res) => {
-    job = new JobPosting();
-    job.remove({_id: mongodb.ObjectID( req.params.id)}, (err, result) => {
+  
+  app.post("/deleteJobPosting", (req, res) => {
+    JobPosting.deleteOne({_id: new mongodb.ObjectId( req.body.id)}, (err, result) => {
       if (err) return console.log(err)
       console.log(req.body)
-      res.redirect('/')
+      return res.json({success: true});
     })
-  })
+  });
 
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

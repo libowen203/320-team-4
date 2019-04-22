@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardHeader, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import EditJobPostingPopup from './EditJobPostingPopup';
-const { MongoClient, ObjectId } = require('mongodb');
+//objectId = require('mongoose').Types.ObjectId;
 
 
 class ManageableJobPostingCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showPopup: false
+      showPopup: false,
+      id: this.props.id
     };
 this.deleteJobPosting = this.deleteJobPosting.bind(this);
   }
@@ -25,12 +26,10 @@ this.deleteJobPosting = this.deleteJobPosting.bind(this);
  
 
  
-  deleteJobPosting() {
-    axios.delete("http://localhost:3001/items/"+ this.props._id)
-    .then(response => {
-         this.setState({ users: response.data });
-        console.log('deleteUser response', response, this.state);
-    });
+  deleteJobPosting = (event) =>{
+    event.preventDefault();
+    console.log(this.state.id);
+    axios.post('http://localhost:3001/deleteJobPosting', this.state);
 }
 
   render() {
@@ -47,6 +46,7 @@ this.deleteJobPosting = this.deleteJobPosting.bind(this);
           </Card>
           {this.state.showPopup ?
               <EditJobPostingPopup
+              job = {this.props.job}
               title = {this.props.title}
               description = {this.props.description}
                   closePopup={this.togglePopup.bind(this)}

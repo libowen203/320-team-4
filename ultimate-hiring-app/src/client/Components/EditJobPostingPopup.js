@@ -7,8 +7,9 @@ class EditJobPostingPopup extends Component{
   constructor(props){
       super(props);
       this.state = {
-          jobTitle: this.props.title,
-          description: this.props.description,
+        job: this.props.job,  
+        jobTitle: this.props.job.title,
+          jobDescription: this.props.job.description,
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.togglePopup = this.togglePopup.bind(this);
@@ -24,33 +25,35 @@ class EditJobPostingPopup extends Component{
     });
   }
 
-  handleTitleChange() {
-this.setState({jobTitle: document.forms.postingInfo.title.value})
+  handleTitleChange(event)  {
+this.setState({jobTitle: event.target.value})
   }
 
-  handleDescriptionChange() {
-    this.setState({description: document.forms.postingInfo.description.value})
+  handleDescriptionChange(event) {
+    this.setState({jobDescription: event.target.value})
       }
 
 //Method for action after hitting the submit button
     handleSubmit = (event) => {
         event.preventDefault();
-        let form = document.forms.postingInfo;
-        console.log(form.title.value)
-        console.log(form.description.value)
+        //let form = document.forms.postingInfo;
+        console.log(this.state.jobTitle);
+        console.log(this.state.job._id);
+        axios.post('http://localhost:3001/updateData', this.state);
+        //console.log(this.state.jobDescription);
 
         //format data according to data dump
         //NOTE: data dump doesn't include posting ID. I'm wondering if we need it or if we'll always query by manager id and position title
         //for example, an employee wouldn't apply for a posting. They'd apply to a title. Then positions would be filled as they're filled
-        this.setState({
+        /*this.setState({
           jobTitle: form.title.value,
-          description: form.description.value,
+          jobDescription: form.description.value,
       },() => { //callback param ensures that setstate occurs before post
         //push data via backend
         console.log('POST')
         axios.post('http://localhost:3001/postData', this.state)
         this.props.closePopup()
-      });
+      });*/
       //document.getElementById("posting-form").reset();
 
       }
@@ -68,9 +71,9 @@ this.setState({jobTitle: document.forms.postingInfo.title.value})
           <div className="header">Edit Job</div>
             <div className="form-group" >
              <h6>{this.props.title}</h6>
-             <input type="text" name ="title" placeholder={this.props.title} value ={this.state.jobTitle} onChange={this.handleTitleChange}></input>
-             <h6>{this.props.description}</h6>
-             <input type="text" name ="description" placeholder={this.props.description} value ={this.state.description} onChange={this.handleDescriptionChange}></input>
+             <input type="text" value ={this.state.jobTitle} onChange={this.handleTitleChange}></input>
+             <h6>{this.props.jobDescription}</h6>
+             <input type="text"   value ={this.state.jobDescription} onChange={this.handleDescriptionChange}></input>
             <br></br>
             <input type = "submit" name="submitButton"></input>
               <button id ="closeButton" onClick={this.props.closePopup}>Close</button>
