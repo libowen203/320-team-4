@@ -38,6 +38,8 @@ app.post("/putData", (req, res) => {
   job.managerId = req.body.managerID;
   job.postedDate = req.body.postingDate;
   job.customFields = req.body.customFieldValues;
+  job.startDate = req.body.startDate;
+  job.postingExpirationDate = req.body.expirationDate;
 
   job.save(err => { //sends object to database
     if (err) return res.json({ success: false, error: err });
@@ -45,12 +47,12 @@ app.post("/putData", (req, res) => {
   });
 });
 app.post("/updateData", (req, res) => {
-
+  console.log(req.body);
 
   JobPosting.updateOne({"_id": new mongodb.ObjectId(req.body.job._id)},
-  {$set:{"title": req.body.jobTitle, "description":req.body.jobDescription}}, (err, result) => {
-    if (err) return console.log(err)
-    console.log(req.body)
+  {$set:{"title": req.body.jobTitle, "description":req.body.jobDescription, "startDate":req.body.startDate, "postingExpirationDate":req.body.expirationDate, "customFields":req.body.customFieldValues}}, (err, result) => {
+    if (err) return console.log(err);
+    console.log(req.body);
     return res.json({success: true});
   })
 });

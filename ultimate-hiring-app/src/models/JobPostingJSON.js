@@ -8,8 +8,8 @@ var jobSchema = new Schema({ //defines database schema to store objects
   "companyName" : String,
   "managerId" : Number,
   "startDate" : String,
-  "postedDate" : Date,
-  "postingExpirationDate" : Date,
+  "postedDate" : String,
+  "postingExpirationDate" : String,
   "customFields": Array
 },{ collection: 'JobPosting' });
 

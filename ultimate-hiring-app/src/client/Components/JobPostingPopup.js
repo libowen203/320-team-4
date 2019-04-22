@@ -99,18 +99,19 @@ class JobPostingPopup extends Component {
                                 <br/>
                                 </div>
                             </div>
-                            <div className="bottomButtons">
-                                <label ref="errorLabel" className="valid"> </label>
-                                <div className="row horizontal-center">
-                                    <div className="col text-right">
-                                        <Button id="submitButton">Submit Application</Button>
-                                    </div>
-                                    <div className="col text-left">
-                                        <Button id="closeButton" onClick={this.props.closePopup}>Close</Button>
-                                    </div>
+
+                        </form>
+                        <div className="bottomButtons">
+                            <label ref="errorLabel" className="valid"> </label>
+                            <div className="row">
+                                <div className="col text-right">
+                                    <Button id="submitButton">Submit Application</Button>
+                                </div>
+                                <div className="col text-left">
+                                    <Button id="closeButton" onClick={this.props.closePopup}>Close</Button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
