@@ -15,8 +15,8 @@ const router = express.Router()
 const dbRoute = "mongodb://3.18.251.248:27017/scrumgang_server"
 const API_PORT = 3001
 
-app.use(cors()) //makes app work with cors
-app.use(bodyParser()) //parses json data for us
+app.use(cors()); //makes app work with cors
+app.use(bodyParser()); //parses json data for us
 
 // connects our back end code with the database
 mongoose.connect(
@@ -30,25 +30,21 @@ db.once("open", () => console.log("connected"))
 // this is our create methid
 // this method adds new data in our database
 app.post("/putData", (req, res) => {
-  job = new JobPosting() //based on Mongoose schema
-  //TODO: Fill in the rest of the fields here before saving object
-  job.title = req.body.jobTitle
-  job.description = req.body.jobDescription
-  job.managerID = req.body.managerID
-  job.postedDate = req.body.postingDate
+  job = new JobPosting(); //based on Mongoose schema
 
-  console.log(job.title)
+  job.title = req.body.jobTitle;
+  job.description = req.body.jobDescription;
+  job.managerId = req.body.managerID;
+  job.postedDate = req.body.postingDate;
+  job.customFields = req.body.customFieldValues;
+
   job.save(err => { //sends object to database
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
 });
-
-
-//Called from EditJobPostingPopup.js
-//Modifies Job by using ID
 app.post("/updateData", (req, res) => {
- 
+
 
   JobPosting.updateOne({"_id": new mongodb.ObjectId(req.body.job._id)},
   {$set:{"title": req.body.jobTitle, "description":req.body.jobDescription}}, (err, result) => {
@@ -58,9 +54,23 @@ app.post("/updateData", (req, res) => {
   })
 });
 
+app.post("/putApp", (req, res) => {
+  application = new JobApplication(); //based on Mongoose schema
+
+  application.firstName = req.body.fname;
+  console.log(application.firstName);
+
+  application.lastName = req.body.lname;
+  application.email = req.body.email;
+
+  application.save(err => { //sends object to database
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true });
+  });
+});
 
 app.get("/getData",(req, res) => {
-  console.log("getting data")
+  console.log("getting data");
   JobPosting.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
