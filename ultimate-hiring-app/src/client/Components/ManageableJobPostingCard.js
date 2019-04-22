@@ -27,8 +27,11 @@ this.deleteJobPosting = this.deleteJobPosting.bind(this);
  
   deleteJobPosting = (event) =>{
     event.preventDefault();
-    console.log(this.state.id);
-    axios.post('http://localhost:3001/deleteJobPosting', this.state);
+    console.log(this.state.id, this.props.job._id);
+    this.setState({id: this.props.job._id}, () => {
+      axios.post('http://localhost:3001/deleteJobPosting', this.state);
+    });
+
 }
 
   render() {

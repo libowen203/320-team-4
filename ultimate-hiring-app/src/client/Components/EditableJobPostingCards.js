@@ -12,7 +12,7 @@ class EditableJobPostingCards extends Component {
     super(props);
     console.log(this.props);
     this.state = {
-      jobsList: this.props.jobs,
+      jobsList: this.props.jobs.reverse(),
       currentPage: 1,
       jobsPerPage: 6
     };
