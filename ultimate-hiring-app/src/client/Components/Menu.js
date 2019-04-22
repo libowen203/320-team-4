@@ -9,21 +9,22 @@ class Menu extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar style={{backgroundColor: '#519e2f'}}>
-          <NavbarBrand style={{color: 'white'}}> Ultimate Hiring App</NavbarBrand>
-          <Nav className="ml-auto" navbar>
-          {this.LoggedIn ? (
-             <NavItem>
-              <NavLink href="/"> Log Out </NavLink>
-             {/*{this.setState({notLoggedIn: false})}*/}
-             </NavItem>
-          ) : (
-            <NavItem>
-            <NavLink href="/managerview"> Log In </NavLink>
-            {/*{this.setState({notLoggedIn: true})}*/}
-            </NavItem>
-          )}
+        <div>
+          <Navbar style={{backgroundColor: '#519e2f'}}>
+            <NavbarBrand style={{color: 'white'}}> Ultimate Hiring App</NavbarBrand>
+            <Nav className="ml-auto" navbar>
+              {this.LoggedIn ? (
+                  <NavItem>
+                    <NavLink href="/" onClick={this.setState({LoggedIn: false})}> Log Out </NavLink>
+                  </NavItem>
+              ) : (
+
+                  <NavItem>
+                    <NavLink href="/managerview" > Manager Log In </NavLink>
+                    <NavLink href="/employeeview" > Employee Log In </NavLink>
+                  </NavItem>
+
+              )}
           </Nav>
         </Navbar>
       </div>
