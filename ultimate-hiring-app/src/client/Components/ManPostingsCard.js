@@ -15,7 +15,7 @@ export default class ManPostingsCard extends React.Component {
             <CardBody> Card Body: Text about card goes here </CardBody>
             <Link to="/ManageJobPostingsView">
      <Button class="btn" type="button">
-          Click Me!
+          Manage Job Postings
      </Button>
  </Link>
           </CardBody>

@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios'
 import { Container} from 'reactstrap';
 import EditableJobPostingCards from "./EditableJobPostingCards";
-
+//Component Rendered by ManagePostingsView
+//Renders EditableJobPostingCards that allow you to Edit or Delete Job Postings 
 class ManagePostings extends React.Component {
     state = {
 		jobs: null

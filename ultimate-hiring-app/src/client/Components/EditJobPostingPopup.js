@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios'
 
 
-
+//Popup that allows job title and job description to be changed
 class EditJobPostingPopup extends Component{
   constructor(props){
       super(props);

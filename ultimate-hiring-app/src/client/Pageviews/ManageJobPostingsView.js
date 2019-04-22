@@ -3,6 +3,7 @@ import JobView from '../Components/JobView';
 import LogOutButton from '../Components/LogOutButton';
 import ManagePostings from '../Components/ManagePostings';
 
+//Renderds Manage Postings to show Job Posting cards with edit/delete feature
 class ManagePostingsView extends Component {
     render() {
         return (

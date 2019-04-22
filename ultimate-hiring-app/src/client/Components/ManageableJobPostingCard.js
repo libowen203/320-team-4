@@ -1,11 +1,10 @@
 import axios from 'axios'
 import React, { Component } from 'react';
-import { Card, CardImg, CardHeader, CardText, CardBody,
+import { Card, CardHeader, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import EditJobPostingPopup from './EditJobPostingPopup';
-//objectId = require('mongoose').Types.ObjectId;
 
-
+//Card Components in the Manage Job Postings View
 class ManageableJobPostingCard extends Component {
   constructor(props) {
     super(props);
