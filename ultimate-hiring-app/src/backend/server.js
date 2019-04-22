@@ -7,6 +7,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const JobPosting = require('../models/JobPostingJSON');
 var mongodb = require('mongodb');
+const JobApplication = require('../models/JobApplicationJSON');
 
 
 const app = express()
